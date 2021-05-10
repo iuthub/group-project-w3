@@ -5,6 +5,95 @@
   margin: 0;
   padding: 0;
 }
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.miniBlogHolder {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  width: 91.6667%;
+}
+.miniBlog {
+  width: 24rem;
+  height: 24rem;
+  padding: 0.75rem;
+  background-color: #fff;
+  position: relative;
+  margin-bottom: 2.5rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease-in-out;
+}
+.miniBlog:hover {
+  transform: scale(1.05);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  color: rgba(30, 58, 138, 1);
+  border-color: rgba(30, 58, 138, 1);
+}
+.miniBlogContent {
+  color: #000;
+  text-decoration: none;
+}
+.miniBlogImageHolder {
+  width: 320px;
+  margin: 0 auto;
+}
+.miniBlogImageHolder img {
+  width: 320px;
+  height: 180px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.miniBlogContext h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+.miniBlogAdditionalInfo {
+  display: flex;
+  align-items: space-between;
+  position: absolute;
+  width: 100%;
+  bottom: 1rem;
+  padding: 0 1.25rem;
+}
+.miniBlogSeenTimes {
+  display: flex;
+  align-items: center;
+  flex: 1 1 0%;
+}
+.miniBlogSeenTimes span {
+  margin-left: 0.5rem;
+}
+.miniBlogSeenTimes img {
+  width: 18px;
+  height: 18px;
+}
+.miniBlogAuthor {
+  flex: 1 1 0%;
+}
+.panel {
+  background-color: #1e2a78;
+  padding: 1.5rem 0;
+}
+.panel h3 {
+  text-align: center;
+  color: #fff;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: 1.2px;
+}
 .footer {
   background-color: #343a40;
   color: white;
@@ -90,6 +179,9 @@
 }
 /* sm */
 @media (min-width: 640px) {
+  .miniBlog {
+    width: 22rem;
+  }
   .footer-column-2 {
     margin-top: 0;
     padding-left: 0;
@@ -129,6 +221,12 @@
 }
 /* xl */
 @media (min-width: 1280px) {
+  .miniBlogHolder {
+    width: 75%;
+  }
+  .miniBlog {
+    width: 22rem;
+  }
   .footer-column-1 {
     padding: 0 2.5rem;
   }
