@@ -15,6 +15,11 @@ header {
   background-size: cover;
   height: 100vh;
   min-height: 24rem;
+  /* filter: brightness(50%); */
+}
+header > div {
+  height: 100vh;
+  min-height: 24rem;
   backdrop-filter: brightness(50%);
 }
 .headerTextHolder {
