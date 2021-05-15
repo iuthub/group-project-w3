@@ -9,6 +9,37 @@ a {
   text-decoration: none;
   color: inherit;
 }
+header {
+  background-image: url("./images/library.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  min-height: 24rem;
+  backdrop-filter: brightness(50%);
+}
+.headerTextHolder {
+  margin: 0 auto;
+  padding-top: 9rem;
+  color: white;
+}
+.headerTextHolder h1 {
+  font-weight: 600;
+  font-family: Serif;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-transform: capitalize;
+  margin: 0 auto 2rem;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  width: 83.333%;
+}
+.headerTextHolder p {
+  margin: 0 auto 3rem;
+  text-align: center;
+  width: 83.333%;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
 .miniBlogHolder {
   padding: 2rem 0;
   display: flex;
@@ -179,6 +210,16 @@ a {
 }
 /* sm */
 @media (min-width: 640px) {
+  .headerTextHolder h1 {
+    font-size: 4.5rem;
+    line-height: 1;
+    width: 75%;
+  }
+  .headerTextHolder p {
+    width: 66.666%;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
   .miniBlog {
     width: 22rem;
   }
@@ -202,6 +243,13 @@ a {
 }
 /* lg */
 @media (min-width: 1024px) {
+  .headerTextHolder h1 {
+    font-size: 6rem;
+  }
+  .headerTextHolder p {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
   .footer-content {
     font-size: 1rem;
     line-height: 1.5rem;
@@ -221,6 +269,16 @@ a {
 }
 /* xl */
 @media (min-width: 1280px) {
+  .headerTextHolder h1 {
+    width: 66.666%;
+    font-size: 3.75rem;
+  }
+  .headerTextHolder p {
+    width: 33.333%;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    margin-bottom: 2.5rem;
+  }
   .miniBlogHolder {
     width: 75%;
   }
