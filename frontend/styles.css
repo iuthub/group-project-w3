@@ -5,3 +5,420 @@
   margin: 0;
   padding: 0;
 }
+a {
+  text-decoration: none;
+  color: inherit;
+}
+header {
+  background-image: url("./images/library.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  min-height: 24rem;
+  /* filter: brightness(50%); */
+}
+header > div {
+  height: 100vh;
+  min-height: 24rem;
+  backdrop-filter: brightness(50%);
+}
+.headerTextHolder {
+  margin: 0 auto;
+  padding-top: 9rem;
+  color: white;
+}
+.headerTextHolder h1 {
+  font-weight: 600;
+  font-family: Serif;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-transform: capitalize;
+  margin: 0 auto 2rem;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  width: 83.333%;
+}
+.headerTextHolder p {
+  margin: 0 auto 3rem;
+  text-align: center;
+  width: 83.333%;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.miniBlogHolder {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  width: 91.6667%;
+}
+.miniBlog {
+  width: 24rem;
+  height: 24rem;
+  padding: 0.75rem;
+  background-color: #fff;
+  position: relative;
+  margin-bottom: 2.5rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease-in-out;
+}
+.miniBlog:hover {
+  transform: scale(1.05);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  color: rgba(30, 58, 138, 1);
+  border-color: rgba(30, 58, 138, 1);
+}
+.miniBlogContent {
+  color: #000;
+  text-decoration: none;
+}
+.miniBlogImageHolder {
+  width: 320px;
+  margin: 0 auto;
+}
+.miniBlogImageHolder img {
+  width: 320px;
+  height: 180px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.miniBlogContext h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+.miniBlogAdditionalInfo {
+  display: flex;
+  align-items: space-between;
+  position: absolute;
+  width: 100%;
+  bottom: 1rem;
+  padding: 0 1.25rem;
+}
+.miniBlogSeenTimes {
+  display: flex;
+  align-items: center;
+  flex: 1 1 0%;
+}
+.miniBlogSeenTimes span {
+  margin-left: 0.5rem;
+}
+.miniBlogSeenTimes img {
+  width: 18px;
+  height: 18px;
+}
+.miniBlogAuthor {
+  flex: 1 1 0%;
+}
+.panel {
+  background-color: #1e2a78;
+  padding: 1.5rem 0;
+}
+.panel h3 {
+  text-align: center;
+  color: #fff;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: 1.2px;
+}
+.footer {
+  background-color: #343a40;
+  color: white;
+  padding-top: 2.5rem;
+  font-family: serif;
+}
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+.footer-column-1 {
+  flex: 1 1 0%;
+  padding-left: 2.5rem;
+}
+.footer-column-1 h5 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-bottom: 0.5rem;
+}
+.footer-column-2 {
+  flex: 1 1 0%;
+  margin-top: 2.5rem;
+  padding-left: 2.5rem;
+}
+.footer-column-2 h5 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-bottom: 0.5rem;
+}
+.footer-column-2 > div {
+  display: flex;
+  flex-direction: column;
+}
+.footer-nav-holder {
+  flex: 1 1 0%;
+  width: 16rem;
+}
+.footer-column-3 {
+  margin-top: 2.5rem;
+}
+.footer-column-3 h5 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin: 0 0 0.5rem 0.25rem;
+}
+.footer-column-3 a {
+  cursor: pointer;
+  margin-right: 0.75rem;
+}
+.footer-column-3 a svg {
+  width: 40px;
+  height: 40px;
+  transition: all 0.3s ease;
+}
+.footer-column-3 a svg:hover {
+  transform: scale(1.25) rotate(360deg);
+}
+.footer-link {
+  margin: 0 0 0.5rem 0.5rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.footer-link a {
+  display: inline-block;
+  padding: 0 0.25rem;
+  text-transform: capitalize;
+  text-decoration: none;
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
+.footer-link a:hover {
+  transform: rotate(6deg) scale(1.25);
+  background-color: black;
+}
+.footer-copywriting {
+  text-align: center;
+  border-top: solid 1px rgba(107, 114, 128, 1);
+  padding: 0.75rem 0;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: rgba(209, 213, 219, 1);
+}
+.postHolder {
+  background-color: #f8fcc3;
+  margin: 1.5rem auto;
+  border: 1px solid transparent;
+  padding: 2rem 0.75rem 4rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  width: 91.666%;
+}
+.postTitle {
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 100;
+  margin-bottom: 2.5rem;
+}
+.postAdditionalInfo {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.5rem;
+  font-weight: 600;
+}
+.postDate {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  color: rgba(29, 78, 216, 1);
+}
+.postAuthor {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-family: serif;
+  font-weight: 300;
+  text-align: right;
+  padding-left: 0.75rem;
+  font-style: italic;
+}
+.faqsPageContentHolder {
+  margin: 0 auto;
+  width: 91.666%;
+}
+.faqHolder {
+  margin-bottom: 1rem;
+}
+.faq {
+  display: flex;
+  align-items: center;
+  border-left: 4px solid;
+  padding: 0.75rem 0;
+}
+.question {
+  border-color: rgba(185, 28, 28, 1);
+  background-color: rgba(254, 242, 242, 1);
+}
+.answer {
+  border-color: rgba(4, 120, 87, 1);
+  background-color: rgba(209, 250, 229, 1);
+}
+.faqContent {
+  width: 83.333%;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.symbol {
+  text-align: center;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  width: 16.666%;
+}
+.questionSymbol {
+  color: rgba(220, 38, 38, 1);
+}
+.answerSymbol {
+  color: rgba(5, 150, 105, 1);
+}
+/* sm */
+@media (min-width: 640px) {
+  .headerTextHolder h1 {
+    font-size: 4.5rem;
+    line-height: 1;
+    width: 75%;
+  }
+  .headerTextHolder p {
+    width: 66.666%;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+  .miniBlog {
+    width: 22rem;
+  }
+  .footer-column-2 {
+    margin-top: 0;
+    padding-left: 0;
+  }
+  .footer-column-2 > div {
+    flex-direction: row;
+  }
+  .postHolder {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  .postTitle {
+    font-size: 3rem;
+    line-height: 1;
+  }
+  .faqContent {
+    width: 91.666%;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+  .symbol {
+    width: 8.333%;
+  }
+}
+/* md */
+@media (min-width: 768px) {
+  .footer-content {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  .footer-column-3 {
+    margin-top: 0;
+  }
+  .postHolder {
+    width: 83.333%;
+  }
+}
+/* lg */
+@media (min-width: 1024px) {
+  .headerTextHolder h1 {
+    font-size: 6rem;
+  }
+  .headerTextHolder p {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  .footer-content {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  .footer-column-1 {
+    padding-right: 0;
+  }
+  .footer-column-1 h5 {
+    width: 16rem;
+  }
+  .footer-column-2 {
+    padding-left: 2.5rem;
+  }
+  .footer-column-3 {
+    padding-left: 2.5rem;
+  }
+  .postHolder {
+    width: 75%;
+  }
+  .faqsPageContentHolder {
+    width: 83.333%;
+  }
+  .termsAndConditionsContent {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+/* xl */
+@media (min-width: 1280px) {
+  .headerTextHolder h1 {
+    width: 66.666%;
+    font-size: 3.75rem;
+  }
+  .headerTextHolder p {
+    width: 33.333%;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    margin-bottom: 2.5rem;
+  }
+  .miniBlogHolder {
+    width: 75%;
+  }
+  .miniBlog {
+    width: 22rem;
+  }
+  .footer-column-1 {
+    padding: 0 2.5rem;
+  }
+  .footer-column-2 {
+    padding-right: 2.5rem;
+  }
+  .footer-column-3 {
+    flex: 1 1 0%;
+    padding-right: 2.5rem;
+  }
+  .postHolder {
+    width: 66.666%;
+  }
+  .faqsPageContentHolder {
+    width: 66.666%;
+  }
+  .faqContent {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  .termsAndConditionsContent {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
