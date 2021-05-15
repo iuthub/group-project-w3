@@ -374,6 +374,10 @@ header > div {
   .faqsPageContentHolder {
     width: 83.333%;
   }
+  .termsAndConditionsContent {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
 }
 /* xl */
 @media (min-width: 1280px) {
@@ -410,6 +414,10 @@ header > div {
     width: 66.666%;
   }
   .faqContent {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  .termsAndConditionsContent {
     font-size: 1rem;
     line-height: 1.5rem;
   }
