@@ -289,6 +289,46 @@ header > div {
 .answerSymbol {
   color: rgba(5, 150, 105, 1);
 }
+.aboutUsCardHolder{
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.aboutUsCard{
+  width: 280px;
+  background-color: white;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+  margin-bottom: 3rem;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+.aboutUsCard:hover{
+  transform: scale(1.05) translateY(-1rem);
+}
+.aboutUsCardImg{
+  margin: 0 auto;
+}
+.aboutUsCardImg img{
+  width: 280px;
+  height: 320px;
+}
+.aboutUsCardContent h2{
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.aboutUsCardContent p{
+    font-size: 1rem;
+    line-height: 1.25rem;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
 /* sm */
 @media (min-width: 640px) {
   .headerTextHolder h1 {
@@ -341,6 +381,9 @@ header > div {
   }
   .postHolder {
     width: 83.333%;
+  }
+  .aboutUsCardHolder{
+    width: 90%;
   }
 }
 /* lg */
@@ -420,5 +463,8 @@ header > div {
   .termsAndConditionsContent {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+  .aboutUsCardHolder{
+    width: 80%;
   }
 }
