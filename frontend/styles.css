@@ -251,6 +251,44 @@ header > div {
   padding-left: 0.75rem;
   font-style: italic;
 }
+.faqsPageContentHolder {
+  margin: 0 auto;
+  width: 91.666%;
+}
+.faqHolder {
+  margin-bottom: 1rem;
+}
+.faq {
+  display: flex;
+  align-items: center;
+  border-left: 4px solid;
+  padding: 0.75rem 0;
+}
+.question {
+  border-color: rgba(185, 28, 28, 1);
+  background-color: rgba(254, 242, 242, 1);
+}
+.answer {
+  border-color: rgba(4, 120, 87, 1);
+  background-color: rgba(209, 250, 229, 1);
+}
+.faqContent {
+  width: 83.333%;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.symbol {
+  text-align: center;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  width: 16.666%;
+}
+.questionSymbol {
+  color: rgba(220, 38, 38, 1);
+}
+.answerSymbol {
+  color: rgba(5, 150, 105, 1);
+}
 /* sm */
 @media (min-width: 640px) {
   .headerTextHolder h1 {
@@ -282,6 +320,14 @@ header > div {
   .postTitle {
     font-size: 3rem;
     line-height: 1;
+  }
+  .faqContent {
+    width: 91.666%;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+  .symbol {
+    width: 8.333%;
   }
 }
 /* md */
@@ -325,6 +371,9 @@ header > div {
   .postHolder {
     width: 75%;
   }
+  .faqsPageContentHolder {
+    width: 83.333%;
+  }
 }
 /* xl */
 @media (min-width: 1280px) {
@@ -357,7 +406,11 @@ header > div {
   .postHolder {
     width: 66.666%;
   }
-}
-/* 2xl */
-@media (min-width: 1536px) {
+  .faqsPageContentHolder {
+    width: 66.666%;
+  }
+  .faqContent {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }
