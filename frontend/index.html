@@ -19,9 +19,9 @@
         <div class="headerTextHolder">
           <h1>Title of The Site</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ipsam
-            animi iusto facere, veritatis autem temporibus quo numquam minus
-            consequuntur, porro labore quas fugiat beatae!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
+            ipsam animi iusto facere, veritatis autem temporibus quo numquam
+            minus consequuntur, porro labore quas fugiat beatae!
           </p>
         </div>
       </div>
@@ -156,73 +156,6 @@
         </div>
       </div>
       <div class="panel">
-        <h3>Popular Posts</h3>
-        <div class="miniBlogHolder">
-          <div class="miniBlog">
-            <a href="#">
-              <div class="miniBlogContent">
-                <div class="miniBlogImageHolder">
-                  <img src="images/nature.jpg" alt="Image of the post" />
-                </div>
-                <div class="miniBlogContext">
-                  <h2>Title of the Post</h2>
-                  <div class="miniBlogAdditionalInfo">
-                    <div class="miniBlogSeenTimes">
-                      <img src="images/eye.png" alt="Eye icon" />
-                      <span>12 002</span>
-                    </div>
-                    <div class="miniBlogAuthor">
-                      <div>Abdullayev Bahodir</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="miniBlog">
-            <a href="#">
-              <div class="miniBlogContent">
-                <div class="miniBlogImageHolder">
-                  <img src="images/nature.jpg" alt="Image of the post" />
-                </div>
-                <div class="miniBlogContext">
-                  <h2>Title of the Post</h2>
-                  <div class="miniBlogAdditionalInfo">
-                    <div class="miniBlogSeenTimes">
-                      <img src="images/eye.png" alt="Eye icon" />
-                      <span>12 002</span>
-                    </div>
-                    <div class="miniBlogAuthor">
-                      <div>Abdullayev Bahodir</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="miniBlog">
-            <a href="#">
-              <div class="miniBlogContent">
-                <div class="miniBlogImageHolder">
-                  <img src="images/nature.jpg" alt="Image of the post" />
-                </div>
-                <div class="miniBlogContext">
-                  <h2>Title of the Post</h2>
-                  <div class="miniBlogAdditionalInfo">
-                    <div class="miniBlogSeenTimes">
-                      <img src="images/eye.png" alt="Eye icon" />
-                      <span>12 002</span>
-                    </div>
-                    <div class="miniBlogAuthor">
-                      <div>Abdullayev Bahodir</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div><div class="panel">
         <h3>Popular Posts</h3>
         <div class="miniBlogHolder">
           <div class="miniBlog">
@@ -436,34 +369,7 @@
         <div class="footer-column-2">
           <h5>Categories</h5>
           <div>
-            <div class="footer-nav-holder">
-              <div class="footer-link">
-                <a href="#">Computer Sciences</a>
-              </div>
-              <div class="footer-link">
-                <a href="#">Exact Sciences</a>
-              </div>
-              <div class="footer-link">
-                <a href="#">Tourism Sciences</a>
-              </div>
-              <div class="footer-link">
-                <a href="#">Natural Sciences</a>
-              </div>
-            </div>
-            <div class="footer-nav-holder">
-              <div class="footer-link">
-                <a href="#">Medical Sciences</a>
-              </div>
-              <div class="footer-link">
-                <a href="#">Historycal Sciences</a>
-              </div>
-              <div class="footer-link">
-                <a href="#">Technical Sciences</a>
-              </div>
-              <div class="footer-link">
-                <a href="#">Other Sciences</a>
-              </div>
-            </div>
+            <div id="categories" class="footer-nav-holder"></div>
           </div>
         </div>
         <div class="footer-column-3">
@@ -622,6 +528,29 @@
         className="text-center border-t border-gray-500 py-3 text-sm text-gray-300"
       ></div>
     </footer>
+    <template>
+      <div class="miniBlog">
+        <a href="#">
+          <div class="miniBlogContent">
+            <div class="miniBlogImageHolder">
+              <img src="images/nature.jpg" alt="Image of the post" />
+            </div>
+            <div class="miniBlogContext">
+              <h2>Title of the Post</h2>
+              <div class="miniBlogAdditionalInfo">
+                <div class="miniBlogSeenTimes">
+                  <img src="images/eye.png" alt="Eye icon" />
+                  <span>12 002</span>
+                </div>
+                <div class="miniBlogAuthor">
+                  <div>Abdullayev Bahodir</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </template>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -637,5 +566,6 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    <script src="./index.js"></script>
   </body>
 </html>
