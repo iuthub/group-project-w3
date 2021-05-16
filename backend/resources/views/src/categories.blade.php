@@ -1,11 +1,7 @@
 @extends('layouts.pages')
-
 @section('content')
 {{-- Modals --}}
-
-
   {{-- Main Content --}}
-
 <div class="ui-container-large">
   <div class="container">
     <form id="searchForm" action="{{ url('post/search') }}" method="post">
@@ -76,7 +72,7 @@
             <form action="{{url('category/deleteCategory')}}" id="categoryDelete" method="post">
                 @csrf
             <div class="kulrang py-1" style="text-align: center;font-size:20px;">Kategoriyani O'chirmoqchimisiz?</div>
-            
+
             <div class="mt-5">
             <input type="hidden" name="id" id="category_delete">
             <div class="d-flex justify-content-around">
@@ -94,28 +90,28 @@
             <a href="#" class="list-group-item list-group-item-action" style="background-color: black;color:white">
               Kategoriyalar
             </a>
-            
+
                 @foreach ($categories as $category)
             <a href="#" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-10">{{$category->title}}</div>
                     <div class="col-2 row">
-                            <button type="button" class="btn btn-primary btn-sm col"  onclick="editCategory({{$category->id}})" ><i class="fas fa-edit"></i></button> 
+                            <button type="button" class="btn btn-primary btn-sm col"  onclick="editCategory({{$category->id}})" ><i class="fas fa-edit"></i></button>
                           <button type="button" class="btn btn-danger btn-sm col" onclick="deleteCategory({{$category->id}})"><i class="fas fa-trash-alt"></i></button>
-                      
+
                     </div>
                 </div>
               </a>
                 @endforeach
-                
-            
+
+
           </div>
-      
-     
+
+
           @else
           <div class="d-flex justify-content-center m-5" style="font-size: 25px;color:grey">No data</div>
           @endif
-          
+
     </div>
 </div>
 
@@ -124,10 +120,10 @@
 @section('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <style>
-      
+
  .large-table-data-style{
     width:800px;text-align:left!important;
- }     
+ }
 .input-style-1 {
     height:30px;
     border: none;
@@ -138,7 +134,7 @@
       color: white;
       box-shadow: 0 .75rem .5rem -.5rem hsl(0 50% 80%);
     }
-    
+
   }
   .input-style-1:focus{
     outline: none !important;
@@ -173,7 +169,7 @@ function editCategory(id){
     enctype: 'multipart/form-data',
     url: "{{url('category/getById')}}",
     success: function (data) {
-        console.log(data.id);   
+        console.log(data.id);
         $('#category_id').val(id);
          $('#category_edit').val(data.title);
          $('.updateModal').modal();

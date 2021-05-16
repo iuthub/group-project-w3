@@ -1,11 +1,7 @@
 @extends('layouts.pages')
-
 @section('content')
 {{-- Modals --}}
-
-
   {{-- Main Content --}}
-
 <div class="ui-container-large">
     <div class="container">
         <div class="d-flex flex-row-reverse">
@@ -27,8 +23,6 @@
                 <div class="m-2">
                     <input type="text" placeholder="Name" class="input-style-1">
                 </div>
-                
-            
         </div>
     </div>
     <hr>
@@ -48,7 +42,7 @@
              </div>
             {{-- <a href="#" rel="modal:close">Close</a> --}}
           </div>
-          
+
         <div class="d-flex justify-content-center m-5" style="font-size: 25px;color:grey">No data</div>
     </div>
 </div>
@@ -68,7 +62,7 @@
       color: white;
       box-shadow: 0 .75rem .5rem -.5rem hsl(0 50% 80%);
     }
-    
+
   }
   .input-style-1:focus{
     outline: none !important;

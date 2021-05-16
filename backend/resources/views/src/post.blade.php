@@ -1,11 +1,7 @@
 @extends('layouts.pages')
-
 @section('content')
 {{-- Modals --}}
-
-
   {{-- Main Content --}}
-
 <div class="ui-container-large">
   <form id="changeStatusPost" action="{{ url('post/changeStatus')}}" method="post">
     @csrf
@@ -36,7 +32,7 @@
                     </div>
                   @endif
 
-                  <div 
+                  <div
                   @if (!empty($post->sample))
                   class="btn btn-success btn-sm"
                   onclick="location.href='{{ asset('storage/'.$post->sample) }}'"
@@ -54,15 +50,15 @@
                   <div class="btn btn-danger btn-sm showView" onclick="deletePost({{$post->id}})"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                     <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
                   </svg></div>
-                  
+
                   <div onclick="edit_page()" class="btn btn-primary btn-sm showView"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill mr-2" viewBox="0 0 16 16">
                     <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z"/>
                   </svg>Matnni O'zgartirish</div>
-                    
+
                     <div  class="btn btn-success btn-sm editView d-none updatepost"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill mr-2" viewBox="0 0 16 16">
                         <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
                       </svg>Saqlash</div>
-                  
+
                 {{-- <div class="btn btn-primary btn-sm">Paste</div> --}}
             </div>
                 {{-- <div class="m-2">
@@ -75,12 +71,12 @@
                     <input type="text" placeholder="Name" class="input-style-1">
                 </div>
                  --}}
-            
+
         </div>
     </div>
     <hr>
     <div class="container ">
-         
+
           {{-- Edit Category Moldal --}}
         <div id="ex1" class="updateModal mymodal modal">
           <form action="{{url('post/updatePost')}}" id="postUpdate" method="post"  enctype="multipart/form-data" >
@@ -145,7 +141,7 @@
           <form action="{{url('post/deletePost')}}" id="postDelete" method="post">
               @csrf
           <div class="kulrang py-1" style="text-align: center;font-size:20px;">Kategoriyani O'chirmoqchimisiz?</div>
-          
+
           <div class="mt-5">
           <input type="hidden" name="id" id="post_delete">
           <div class="d-flex justify-content-around">
@@ -157,7 +153,7 @@
         </div>
 
         {{-- End of Modals --}}
-       
+
           <input type="hidden" name="data" id="old_data" value="{{ $post->body }}">
 
           <div class="editView d-none">
@@ -172,7 +168,7 @@
             <div class="btn btn-primary updatepost">Update</div>
            </form>
           </div>
-          
+
           <div class="showView">
             <div class="card text-center">
                 <div class="card-body">
@@ -182,8 +178,8 @@
                 </div>
               </div>
           </div>
-          
-          
+
+
         {{-- <div class="d-flex justify-content-center m-5" style="font-size: 25px;color:grey">No data</div> --}}
     </div>
 </div>
@@ -205,7 +201,7 @@
       color: white;
       box-shadow: 0 .75rem .5rem -.5rem hsl(0 50% 80%);
     }
-    
+
   }
   .input-style-1:focus{
     outline: none !important;
@@ -273,11 +269,11 @@ $('#post_body').trumbowyg({
             fileFieldName: 'image',
             data: [{name: 'key', value: '91014f339e4918341543d55f314b764d'}],
             urlPropertyName: 'data.url',
-            imageWidthModalEdit: true 
+            imageWidthModalEdit: true
         }
     },
     autogrow: true,
-   
+
 });
 $('#post_body').trumbowyg('html', $('#old_data').val());
 $('.card-text').html($('#old_data').val());
@@ -304,7 +300,7 @@ function editPost(id){
     enctype: 'multipart/form-data',
     url: "{{url('post/getById')}}",
     success: function (data) {
-        console.log(data.id);   
+        console.log(data.id);
         $('#id_edit').val(id);
          $('#title_edit').val(data.title);
          $('#pages_edit').val(data.pages);
@@ -318,7 +314,7 @@ function editPost(id){
          if(data.sample==""){
           $('#sample_edit').val(data.sample);
 }
-        
+
          $('.updateModal').modal();
     }
 });

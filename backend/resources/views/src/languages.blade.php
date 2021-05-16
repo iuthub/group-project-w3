@@ -1,11 +1,7 @@
 @extends('layouts.pages')
-
 @section('content')
 {{-- Modals --}}
-
-
   {{-- Main Content --}}
-
 <div class="ui-container-large">
     <div class="container">
       <form id="searchForm" action="{{ url('post/search') }}" method="post">
@@ -61,7 +57,7 @@
                 @csrf
             <div class="kulrang py-1" style="text-align: center;font-size:20px;">Tilni Tahrirlash</div>
             <div class="content mx-3 mt-3 d-flex flex-column">
-                
+
                 <input type="hidden" name="id" id="language_id">
                 <div class="text-design1 ui-text-5x">Til:</div>
                <input type="text" name="name" id="name_edit"  class="input-style-1 mt-2" >
@@ -83,7 +79,7 @@
             <form action="{{url('language/deleteLanguage')}}" id="languageDelete" method="post">
                 @csrf
             <div class="kulrang py-1" style="text-align: center;font-size:20px;">Ushbu Tilni O'chirmoqchimisiz?</div>
-            
+
             <div class="mt-5">
             <input type="hidden" name="id" id="language_delete">
             <div class="d-flex justify-content-around">
@@ -101,28 +97,28 @@
             <a href="#" class="list-group-item list-group-item-action" style="background-color: black;color:white">
               Tillar
             </a>
-            
+
                 @foreach ($languages as $language)
             <a href="#" class="list-group-item list-group-item-action">
                 <div class="row">
                     <div class="col-10">{{$language->name}} ({{$language->price}} so'm/bet )</div>
                     <div class="col-2 row">
-                            <button type="button" class="btn btn-primary btn-sm col"  onclick="editLanguage({{$language->id}})" ><i class="fas fa-edit"></i></button> 
+                            <button type="button" class="btn btn-primary btn-sm col"  onclick="editLanguage({{$language->id}})" ><i class="fas fa-edit"></i></button>
                           <button type="button" class="btn btn-danger btn-sm col" onclick="deleteLanguage({{$language->id}})"><i class="fas fa-trash-alt"></i></button>
-                      
+
                     </div>
                 </div>
               </a>
                 @endforeach
-                
-            
+
+
           </div>
-      
-     
+
+
           @else
           <div class="d-flex justify-content-center m-5" style="font-size: 25px;color:grey">No data</div>
           @endif
-          
+
     </div>
 </div>
 
@@ -131,10 +127,10 @@
 @section('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <style>
-      
+
  .large-table-data-style{
     width:800px;text-align:left!important;
- }     
+ }
 .input-style-1 {
     height:30px;
     border: none;
@@ -145,7 +141,7 @@
       color: white;
       box-shadow: 0 .75rem .5rem -.5rem hsl(0 50% 80%);
     }
-    
+
   }
   .input-style-1:focus{
     outline: none !important;
@@ -180,7 +176,7 @@ function editLanguage(id){
     enctype: 'multipart/form-data',
     url: "{{url('language/getById')}}",
     success: function (data) {
-        console.log(data.id);   
+        console.log(data.id);
         $('#language_id').val(id);
          $('#name_edit').val(data.name);
          $('#price_edit').val(data.price);

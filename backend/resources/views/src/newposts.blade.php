@@ -1,11 +1,7 @@
 @extends('layouts.pages')
-
 @section('content')
 {{-- Modals --}}
-
-
   {{-- Main Content --}}
-
 <div class="ui-container-large">
   <div class="container">
     <form id="searchForm" action="{{ url('post/search') }}" method="post">
@@ -54,7 +50,7 @@
                       @endforeach
                     @endif
                   </optgroup>
-                
+
                 </select>
                </div>
             </div>
@@ -63,7 +59,7 @@
     <hr>
     <div class="container ">
         {{-- Create Category Moldal --}}
-        
+
         <div id="ex1" class="createModal mymodal modal">
             <form action="{{route('post.store')}}" id="categoryCreate" method="post" enctype="multipart/form-data">
                 @csrf
@@ -184,7 +180,7 @@
             <form action="{{url('post/deletePost')}}" id="postDelete" method="post">
                 @csrf
             <div class="kulrang py-1" style="text-align: center;font-size:20px;">Kategoriyani O'chirmoqchimisiz?</div>
-            
+
             <div class="mt-5">
             <input type="hidden" name="id" id="post_delete">
             <div class="d-flex justify-content-around">
@@ -202,7 +198,7 @@
             <a href="#" class="list-group-item list-group-item-action" style="background-color: black;color:white">
               Postlar
             </a>
-            
+
                 @foreach ($posts as $post)
             <a class="list-group-item list-group-item-action myElementsList">
                 <div class="row">
@@ -226,34 +222,34 @@
                               </svg>
                               <span class="mr-3 ml-1 text-secondary" style="font-size: 12px;">{{$post->created_at}}</span>
                             </div>
-                            
+
                         </div>
                     </div>
                     <div class="col-2 row buttonEdits">
-                      <button type="button"   
+                      <button type="button"
                       @if (!empty($post->sample))
                       class="btn btn-success btn-sm col"
                       onclick="location.href='{{ asset('storage/'.$post->sample) }}'"
                       @else
                       class="btn btn-secondary btn-sm col"
                       @endif
-                      ><i class="far fa-file-alt"></i></button> 
-                            <button type="button" class="btn btn-primary btn-sm col"  onclick="editPost({{$post->id}})" ><i class="fas fa-edit"></i></button> 
+                      ><i class="far fa-file-alt"></i></button>
+                            <button type="button" class="btn btn-primary btn-sm col"  onclick="editPost({{$post->id}})" ><i class="fas fa-edit"></i></button>
                           <button type="button" class="btn btn-danger btn-sm col" onclick="deletePost({{$post->id}})"><i class="fas fa-trash-alt"></i></button>
-                      
+
                     </div>
                 </div>
               </a>
                 @endforeach
-                
-            
+
+
           </div>
-      
-     
+
+
           @else
           <div class="d-flex justify-content-center m-5" style="font-size: 25px;color:grey">No data</div>
           @endif
-          
+
     </div>
 </div>
 
@@ -262,7 +258,7 @@
 @section('css')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 <style>
-  
+
 .input-style-1 {
     height:30px;
     border: none;
@@ -273,7 +269,7 @@
       color: white;
       box-shadow: 0 .75rem .5rem -.5rem hsl(0 50% 80%);
     }
-    
+
   }
   .input-style-1:focus{
     outline: none !important;
@@ -312,7 +308,7 @@ function editPost(id){
     enctype: 'multipart/form-data',
     url: "{{url('post/getById')}}",
     success: function (data) {
-        console.log(data.id);   
+        console.log(data.id);
         $('#id_edit').val(id);
          $('#title_edit').val(data.title);
          $('#pages_edit').val(data.pages);
@@ -326,7 +322,7 @@ function editPost(id){
          if(data.sample==""){
           $('#sample_edit').val(data.sample);
 }
-        
+
          $('.updateModal').modal();
     }
 });
