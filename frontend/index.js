@@ -25,26 +25,45 @@ const setCategories = async () => {
 };
 
 const setPosts = async () => {
-  const postsContainers = document.getElementsByClassName("miniBlogHolder");
+  const postsContainers = document.querySelectorAll(".miniBlogHolder");
   const cardTemplate = document.getElementsByTagName("template")[0];
   let {
     posts: { data, first_page_url, last_page_url, last_page, prev_page_url },
   } = await get("get_posts");
-  console.log(data);
   data.forEach(({ title, author, body, views }, index) => {
     const card = cardTemplate.content.cloneNode(true);
     const anchor = card.querySelector("a");
     anchor.setAttribute("href", "title");
     const titleHtml = card.querySelector("h2");
-    title.innerHTML = title;
+    titleHtml.innerHTML = title;
     const viewsHtml = card.querySelector(".views");
-    views.innerHTML = views;
+    viewsHtml.innerHTML = views;
     const authorHtml = card.querySelector(".author");
-    author.innerHTML = author;
-    console.log(card);
-    postsContainers[0].appendChild(card);
+    authorHtml.innerHTML = author;
+    index < 6
+      ? postsContainers[0].appendChild(card)
+      : postsContainers[2].appendChild(card);
+  });
+};
+
+const setPopularPosts = async () => {
+  const postsContainer = document.querySelectorAll(".miniBlogHolder")[1];
+  const cardTemplate = document.getElementsByTagName("template")[0];
+  let { posts } = await get("get_populars");
+  posts.forEach(({ title, author, body, views }) => {
+    const card = cardTemplate.content.cloneNode(true);
+    const anchor = card.querySelector("a");
+    anchor.setAttribute("href", "title");
+    const titleHtml = card.querySelector("h2");
+    titleHtml.innerHTML = title;
+    const viewsHtml = card.querySelector(".views");
+    viewsHtml.innerHTML = views;
+    const authorHtml = card.querySelector(".author");
+    authorHtml.innerHTML = author;
+    postsContainer.appendChild(card);
   });
 };
 
 setCategories();
 setPosts();
+setPopularPosts();
