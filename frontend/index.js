@@ -64,6 +64,13 @@ const setPopularPosts = async () => {
   });
 };
 
+const setPagination = async () => {
+  const paginationBlock = document.querySelector("pagination");
+  const { prev_page_url, next_page_url } = await get("get_posts");
+  
+};
+
 setCategories();
 setPosts();
 setPopularPosts();
+setPagination();
