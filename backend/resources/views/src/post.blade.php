@@ -84,61 +84,47 @@
           {{-- Edit Category Moldal --}}
         <div id="ex1" class="updateModal mymodal modal">
           <form action="{{url('post/updatePost')}}" id="postUpdate" method="post"  enctype="multipart/form-data" >
-              @csrf
-              <input type="hidden" name="id" id="id_edit">
-          <div class="kulrang py-1" style="text-align: center;font-size:20px;">Post Tahrirlash</div>
-          <div class="content mx-3 mt-3 d-flex flex-column">
-            <div class="row col">
-              <div class="text-design1 ui-text-5x col-4 mt-2">Sarlavha:</div>
-              <input type="text" name="title" id="title_edit"  class="input-style-1 mt-2 col-8" >
-            </div>
-             <div class="row col">
-              <div class="text-design1 ui-text-5x col-4 mt-2">Betlari:</div>
-              <input type="number" name="pages" id="pages_edit"  class="input-style-1 mt-2 col-8" >
-             </div>
-             <div class="row col">
-              <div class="text-design1 ui-text-5x col-4 mt-2">Avtor:</div>
-              <input type="text" name="author" id="author_edit"  class="input-style-1 mt-2 col-8" >
-             </div>
-             <div class="row col">
-              <div class="text-design1 ui-text-5x col-4 mt-2">Email:</div>
-              <input type="text" name="email" id="email_edit"  class="input-style-1 mt-2 col-8" >
-             </div>
-             <div class="row col">
-              <div class="text-design1 ui-text-5x col-4 mt-2">Telefoni:</div>
-              <input type="phone" name="phone" id="phone_edit"  class="input-style-1 mt-2 col-8" >
-             </div>
-             <div class="row col">
-              <div class="text-design1 ui-text-5x col-4 mt-2">Tili:</div>
-              <select name="language" id="language_edit" class="input-style-1 mt-2 col-8">
-                @foreach ($languages as $language)
-                <option value="{{$language->id}}">{{$language->name}}</option>
-                @endforeach
-              </select>
-             </div>
-             <div class="row col">
-              <div class="text-design1 ui-text-5x col-4 mt-2">Kategoriyasi:</div>
-              <select name="category_id" id="category_id_edit" class="input-style-1 mt-2 col-8">
-                @foreach ($categories as $category)
-                <option value="{{$category->id}}">{{$category->title}}</option>
-                @endforeach
-              </select>
-             </div>
-
-             <div class="row col">
-              <div class="text-design1 ui-text-5x col-4 mt-2">Fayl:</div>
-              <input type="file" name="sample" id="sample_edit"  class="input-style-1 mt-2 col-8" >
-             </div>
-
+            @csrf
+            <input type="hidden" name="id" id="id_edit">
+        <div class="kulrang py-1" style="text-align: center;font-size:20px;">Postni Tahrirlash</div>
+        <div class="content mx-3 mt-3 d-flex flex-column">
+          <div class="row col">
+            <div class="text-design1 ui-text-5x col-4 mt-2">Sarlavha:</div>
+            <input type="text" name="title" id="title_edit"  class="input-style-1 mt-2 col-8" >
           </div>
-          <div >
-          <hr>
-          <div class="d-flex justify-content-around">
-                  <div class="btn btn-danger close_modal">Chiqish</div>
-                  <div class="btn btn-primary" onclick="document.getElementById('postUpdate').submit()">Yangilash</div>
-          </div>
+           <div class="row col">
+            <div class="text-design1 ui-text-5x col-4 mt-2">Subheading:</div>
+            <input type="text" name="subheading" id="subheading_edit"  class="input-style-1 mt-2 col-8" >
            </div>
-          </form>
+           <div class="row col">
+            <div class="text-design1 ui-text-5x col-4 mt-2">Avtor:</div>
+            <input type="text" name="author" id="author_edit"  class="input-style-1 mt-2 col-8" >
+           </div>
+          
+           
+           <div class="row col">
+            <div class="text-design1 ui-text-5x col-4 mt-2">Kategoriyasi:</div>
+            <select name="category_id" id="category_id_edit" class="input-style-1 mt-2 col-8">
+              @foreach ($categories as $category)
+              <option value="{{$category->id}}">{{$category->title}}</option>
+              @endforeach
+            </select>
+           </div>
+
+           <div class="row col">
+            <div class="text-design1 ui-text-5x col-4 mt-2">Fayl:</div>
+            <input type="file" name="sample" id="sample_edit"  class="input-style-1 mt-2 col-8" >
+           </div>
+
+        </div>
+        <div >
+        <hr>
+        <div class="d-flex justify-content-around">
+                <div class="btn btn-danger close_modal">Chiqish</div>
+                <div class="btn btn-primary" onclick="document.getElementById('postUpdate').submit()">Yangilash</div>
+        </div>
+         </div>
+        </form>
         </div>
          {{-- Delete Category Moldal --}}
       <div id="ex1" class="deleteModal mymodal modal">
@@ -307,12 +293,8 @@ function editPost(id){
         console.log(data.id);   
         $('#id_edit').val(id);
          $('#title_edit').val(data.title);
-         $('#pages_edit').val(data.pages);
+         $('#subheading_edit').val(data.subheading);
          $('#author_edit').val(data.author);
-         $('#email_edit').val(data.email);
-         $('#phone_edit').val(data.phone);
-
-         $('#language_edit').val(data.language).change();
          $('#category_id_edit').val(data.category_id).change();
 
          if(data.sample==""){
