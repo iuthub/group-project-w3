@@ -74,29 +74,15 @@
                 <input type="text" name="title" id="title"  class="input-style-1 mt-2 col-8" >
               </div>
                <div class="row col">
-                <div class="text-design1 ui-text-5x col-4 mt-2">Betlari:</div>
-                <input type="number" name="pages" id="pages"  class="input-style-1 mt-2 col-8" >
+                <div class="text-design1 ui-text-5x col-4 mt-2">Subheading:</div>
+                <input type="text" name="subheading" id="subheading"  class="input-style-1 mt-2 col-8" >
                </div>
                <div class="row col">
                 <div class="text-design1 ui-text-5x col-4 mt-2">Avtor:</div>
                 <input type="text" name="author" id="author"  class="input-style-1 mt-2 col-8" >
                </div>
-               <div class="row col">
-                <div class="text-design1 ui-text-5x col-4 mt-2">Email:</div>
-                <input type="text" name="email" id="email"  class="input-style-1 mt-2 col-8" >
-               </div>
-               <div class="row col">
-                <div class="text-design1 ui-text-5x col-4 mt-2">Telefoni:</div>
-                <input type="phone" name="phone" id="phone"  class="input-style-1 mt-2 col-8" >
-               </div>
-               <div class="row col">
-                <div class="text-design1 ui-text-5x col-4 mt-2">Tili:</div>
-                <select name="language" id="language" class="input-style-1 mt-2 col-8">
-                  @foreach ($languages as $language)
-                  <option value="{{$language->id}}">{{$language->name}}</option>
-                  @endforeach
-                </select>
-               </div>
+             
+              
                <div class="row col">
                 <div class="text-design1 ui-text-5x col-4 mt-2">Kategoriyasi:</div>
                 <select name="category_id" id="category_id" class="input-style-1 mt-2 col-8">
@@ -107,7 +93,7 @@
                </div>
 
                <div class="row col">
-                <div class="text-design1 ui-text-5x col-4 mt-2">Fayl:</div>
+                <div class="text-design1 ui-text-5x col-4 mt-2">Rasm:</div>
                 <input type="file" name="sample" id="sample"  class="input-style-1 mt-2 col-8" >
                </div>
 
@@ -132,29 +118,15 @@
                 <input type="text" name="title" id="title_edit"  class="input-style-1 mt-2 col-8" >
               </div>
                <div class="row col">
-                <div class="text-design1 ui-text-5x col-4 mt-2">Betlari:</div>
-                <input type="number" name="pages" id="pages_edit"  class="input-style-1 mt-2 col-8" >
+                <div class="text-design1 ui-text-5x col-4 mt-2">Subheading:</div>
+                <input type="text" name="subheading" id="subheading_edit"  class="input-style-1 mt-2 col-8" >
                </div>
                <div class="row col">
                 <div class="text-design1 ui-text-5x col-4 mt-2">Avtor:</div>
                 <input type="text" name="author" id="author_edit"  class="input-style-1 mt-2 col-8" >
                </div>
-               <div class="row col">
-                <div class="text-design1 ui-text-5x col-4 mt-2">Email:</div>
-                <input type="text" name="email" id="email_edit"  class="input-style-1 mt-2 col-8" >
-               </div>
-               <div class="row col">
-                <div class="text-design1 ui-text-5x col-4 mt-2">Telefoni:</div>
-                <input type="phone" name="phone" id="phone_edit"  class="input-style-1 mt-2 col-8" >
-               </div>
-               <div class="row col">
-                <div class="text-design1 ui-text-5x col-4 mt-2">Tili:</div>
-                <select name="language" id="language_edit" class="input-style-1 mt-2 col-8">
-                  @foreach ($languages as $language)
-                  <option value="{{$language->id}}">{{$language->name}}</option>
-                  @endforeach
-                </select>
-               </div>
+              
+               
                <div class="row col">
                 <div class="text-design1 ui-text-5x col-4 mt-2">Kategoriyasi:</div>
                 <select name="category_id" id="category_id_edit" class="input-style-1 mt-2 col-8">
@@ -227,17 +199,7 @@
                               </svg>
                               <span class="mr-3 ml-1 text-secondary" style="font-size: 12px;">{{$post->created_at}}</span>
 
-                              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-cash text-success" viewBox="0 0 16 16">
-                                <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
-                                <path d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2H3z"/>
-                              </svg>
-                          <span class="mr-3 ml-1 text-success" style="font-size: 12px;">
-                          @foreach ($languages as $item)
-                              @if ($item->id == $post->language)
-                                  {{$item->price*$post->pages}} so'm
-                              @endif
-                          @endforeach  
-                          </span>
+                             
                             </div>
                        
                         </div>
@@ -325,15 +287,11 @@ function editPost(id){
     enctype: 'multipart/form-data',
     url: "{{url('post/getById')}}",
     success: function (data) {
-        console.log(data.id);   
+      console.log(data.id);   
         $('#id_edit').val(id);
          $('#title_edit').val(data.title);
-         $('#pages_edit').val(data.pages);
+         $('#subheading_edit').val(data.subheading);
          $('#author_edit').val(data.author);
-         $('#email_edit').val(data.email);
-         $('#phone_edit').val(data.phone);
-
-         $('#language_edit').val(data.language).change();
          $('#category_id_edit').val(data.category_id).change();
 
          if(data.sample==""){
