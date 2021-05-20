@@ -291,34 +291,32 @@ header > div {
 }
 
 .pagination {
-  display: inline-flex;
-  justify-content: center;
+  display: flex;
   width: 100%;
-  text-align: center;
-  margin-bottom: 50px;
+  justify-content: space-evenly;
+  margin-bottom: 40px;
 }
 
-.pagination a {
-  color: black;
-  float: left;
-  margin-right: 2px;
-  margin-left: 2px;
-  width: 35px;
-  height: 35px;
+.older,
+.newer {
   display: flex;
   align-items: center;
-  justify-content: center;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.older:hover,
+.newer:hover {
   text-decoration: none;
-  border-radius: 50%;
 }
 
-.pagination a.active {
-  background-color: rgb(30, 58, 138);
-  color: white;
+.newer img {
+  transform: rotateZ(180deg);
+  margin-right: 15px;
 }
 
-.pagination a:hover:not(.active) {
-  background-color: #eee;
+.older img {
+  margin-left: 15px;
 }
 
 /* sm */
