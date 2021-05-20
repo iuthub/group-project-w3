@@ -1,5 +1,10 @@
+let BASE_URL = "http://blogpost.sbuy.uz/api/blog/";
+
+const olderButton = document.querySelector(".older");
+const newerButton = document.querySelector(".newer");
+
 const get = async (slug) => {
-  response = await fetch(`http://blogpost.sbuy.uz/api/blog/${slug}`);
+  response = await fetch(BASE_URL + slug);
   if (response.ok) {
     return response.json();
   } else
@@ -24,12 +29,26 @@ const setCategories = async () => {
   });
 };
 
-const setPosts = async () => {
+const setPosts = async (requestParameter) => {
   const postsContainers = document.querySelectorAll(".miniBlogHolder");
   const cardTemplate = document.getElementsByTagName("template")[0];
   let {
-    posts: { data, first_page_url, last_page_url, last_page, prev_page_url },
-  } = await get("get_posts");
+    posts: { data, current_page, next_page_url, last_page, prev_page_url },
+  } = await get(`get_posts${requestParameter ? `?${requestParameter}` : ""}`);
+
+  if (current_page === 1) {
+    olderButton.style.visibility = "visible";
+    olderButton.setAttribute("href", next_page_url);
+  } else if (current_page === last_page) {
+    newerButton.style.visibility = "visible";
+    newerButton.setAttribute("href", prev_page_url);
+  } else {
+    olderButton.style.visibility = "visible";
+    newerButton.style.visibility = "visible";
+    olderButton.setAttribute("href", next_page_url);
+    newerButton.setAttribute("href", prev_page_url);
+  }
+
   data.forEach(({ title, author, body, views, id }, index) => {
     const card = cardTemplate.content.cloneNode(true);
     const anchor = card.querySelector("a");
@@ -53,7 +72,7 @@ const setPopularPosts = async () => {
   posts.forEach(({ title, author, body, views, id }) => {
     const card = cardTemplate.content.cloneNode(true);
     const anchor = card.querySelector("a");
-    anchor.setAttribute("href", `post/${id}`);
+    anchor.setAttribute("href", `/post/${id}`);
     const titleHtml = card.querySelector("h2");
     titleHtml.innerHTML = title;
     const viewsHtml = card.querySelector(".views");
@@ -64,11 +83,16 @@ const setPopularPosts = async () => {
   });
 };
 
-const setPagination = async () => {
-  const paginationBlock = document.querySelector("pagination");
-  const { prev_page_url, next_page_url } = await get("get_posts");
-};
-
 setCategories();
 setPosts();
 setPopularPosts();
+
+olderButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  console.dir(event.target);
+});
+
+newerButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  console.dir(event.target);
+});
