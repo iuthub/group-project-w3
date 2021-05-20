@@ -304,6 +304,7 @@ header > div {
   border-radius: 15px;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
+  padding: 0 0 1.5rem
 }
 .aboutUsCard:hover{
   transform: scale(1.05) translateY(-1rem);
@@ -360,6 +361,7 @@ header > div {
   .postTitle {
     font-size: 3rem;
     line-height: 1;
+    margin: 1.5rem 0
   }
   .faqContent {
     width: 91.666%;
