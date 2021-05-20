@@ -30,10 +30,10 @@ const setPosts = async () => {
   let {
     posts: { data, first_page_url, last_page_url, last_page, prev_page_url },
   } = await get("get_posts");
-  data.forEach(({ title, author, body, views }, index) => {
+  data.forEach(({ title, author, body, views, id }, index) => {
     const card = cardTemplate.content.cloneNode(true);
     const anchor = card.querySelector("a");
-    anchor.setAttribute("href", "title");
+    anchor.setAttribute("href", `/post/${id}`);
     const titleHtml = card.querySelector("h2");
     titleHtml.innerHTML = title;
     const viewsHtml = card.querySelector(".views");
@@ -50,10 +50,10 @@ const setPopularPosts = async () => {
   const postsContainer = document.querySelectorAll(".miniBlogHolder")[1];
   const cardTemplate = document.getElementsByTagName("template")[0];
   let { posts } = await get("get_populars");
-  posts.forEach(({ title, author, body, views }) => {
+  posts.forEach(({ title, author, body, views, id }) => {
     const card = cardTemplate.content.cloneNode(true);
     const anchor = card.querySelector("a");
-    anchor.setAttribute("href", "title");
+    anchor.setAttribute("href", `post/${id}`);
     const titleHtml = card.querySelector("h2");
     titleHtml.innerHTML = title;
     const viewsHtml = card.querySelector(".views");
@@ -67,10 +67,8 @@ const setPopularPosts = async () => {
 const setPagination = async () => {
   const paginationBlock = document.querySelector("pagination");
   const { prev_page_url, next_page_url } = await get("get_posts");
-  
 };
 
 setCategories();
 setPosts();
 setPopularPosts();
-setPagination();
