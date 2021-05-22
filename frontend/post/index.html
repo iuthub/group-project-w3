@@ -44,29 +44,7 @@
       </div>
       <div class="panel">
         <h3>Recommended Posts</h3>
-        <div class="miniBlogHolder">
-          <div class="miniBlog">
-            <a href="#">
-              <div class="miniBlogContent">
-                <div class="miniBlogImageHolder">
-                  <img src="../images/nature.jpg" alt="Image of the post" />
-                </div>
-                <div class="miniBlogContext">
-                  <h2>Title of the Post</h2>
-                  <div class="miniBlogAdditionalInfo">
-                    <div class="miniBlogSeenTimes">
-                      <img src="../images/eye.png" alt="Eye icon" />
-                      <span>12 002</span>
-                    </div>
-                    <div class="miniBlogAuthor">
-                      <div>Abdullayev Bahodir</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
+        <div class="miniBlogHolder"></div>
       </div>
     </main>
     <footer class="footer">
@@ -245,5 +223,28 @@
         className="text-center border-t border-gray-500 py-3 text-sm text-gray-300"
       ></div>
     </footer>
+    <template>
+      <div class="miniBlog">
+        <a href="#">
+          <div class="miniBlogContent">
+            <div class="miniBlogImageHolder">
+              <img src="../images/nature.jpg" alt="Image of the post" />
+            </div>
+            <div class="miniBlogContext">
+              <h2>Title of the Post</h2>
+              <div class="miniBlogAdditionalInfo">
+                <div class="miniBlogSeenTimes">
+                  <img src="../images/eye.png" alt="Eye icon" />
+                  <span class="views">777</span>
+                </div>
+                <div class="miniBlogAuthor">
+                  <div class="author">Author</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </template>
   </body>
 </html>
