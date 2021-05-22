@@ -18,7 +18,6 @@ const get = async (slug) => {
 const setCategories = async () => {
   const categoriesContainer = document.getElementById("categories");
   let { categories } = await get("get_categories");
-  console.log(categories);
   categories.forEach(({ id, title }) => {
     const category = document.createElement("div");
     category.className = "footer-link";
@@ -49,28 +48,49 @@ const setCategories = async () => {
   });
 };
 
-const setPosts = async (requestQuery) => {
+const setPosts = async () => {
   const postsContainers = document.querySelectorAll(".miniBlogHolder");
   postsContainers[0].innerHTML = "";
   postsContainers[2].innerHTML = "";
   const cardTemplate = document.getElementsByTagName("template")[0];
+  const query = window.location.search;
   let {
     posts: { data, current_page, next_page_url, last_page, prev_page_url },
-  } = await get(`get_posts${requestQuery ? requestQuery : ""}`);
+  } = await get(`get_posts${query ? query : ""}`);
 
   if (current_page === 1) {
     newerButton.style.visibility = "hidden";
     olderButton.style.visibility = "visible";
     olderButton.setAttribute("href", next_page_url);
+    //re-use search part of url which was extracted by browser
+    olderButton.setAttribute(
+      "href",
+      window.location.pathname + olderButton.search
+    );
   } else if (current_page === last_page) {
     olderButton.style.visibility = "hidden";
     newerButton.style.visibility = "visible";
     newerButton.setAttribute("href", prev_page_url);
+    //re-use search part of url which was extracted by browser
+    newerButton.setAttribute(
+      "href",
+      window.location.pathname + newerButton.search
+    );
   } else {
     olderButton.style.visibility = "visible";
     newerButton.style.visibility = "visible";
     olderButton.setAttribute("href", next_page_url);
+    //re-use search part of url which was extracted by browser
+    olderButton.setAttribute(
+      "href",
+      window.location.pathname + olderButton.search
+    );
     newerButton.setAttribute("href", prev_page_url);
+    //re-use search part of url which was extracted by browser
+    newerButton.setAttribute(
+      "href",
+      window.location.pathname + newerButton.search
+    );
   }
 
   data.forEach(({ title, author, body, views, id }, index) => {
@@ -110,13 +130,3 @@ const setPopularPosts = async () => {
 setCategories();
 setPosts();
 setPopularPosts();
-
-olderButton.addEventListener("click", (event) => {
-  event.preventDefault();
-  setPosts(olderButton.search);
-});
-
-newerButton.addEventListener("click", (event) => {
-  event.preventDefault();
-  setPosts(newerButton.search);
-});
