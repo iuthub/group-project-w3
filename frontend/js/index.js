@@ -18,6 +18,7 @@ const get = async (slug) => {
 const setCategories = async () => {
   const categoriesContainer = document.getElementById("categories");
   let { categories } = await get("get_categories");
+  console.log(categories);
   categories.forEach(({ id, title }) => {
     const category = document.createElement("div");
     category.className = "footer-link";
@@ -26,6 +27,25 @@ const setCategories = async () => {
     anchor.innerHTML = title;
     category.appendChild(anchor);
     categoriesContainer.appendChild(category);
+    category.addEventListener("click", async (event) => {
+      event.preventDefault();
+      response = await fetch(BASE_URL + "get_posts_by_category", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: [id] }),
+      });
+      if (response.ok) {
+        return response.json();
+      } else
+        console.log(
+          new Error(
+            "Something went wrong in getting a response. Please, try again!."
+          )
+        );
+      console.log(response);
+    });
   });
 };
 
