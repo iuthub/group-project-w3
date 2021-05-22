@@ -16,6 +16,25 @@ const get = async (slug) => {
     );
 };
 
+const post = async (slug, body, options = {}) => {
+  response = await fetch(BASE_URL + slug, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+    ...options,
+  });
+  if (response.ok) {
+    return response.json();
+  } else
+    console.log(
+      new Error(
+        "Something went wrong in getting a response. Please, try again!."
+      )
+    );
+};
+
 const setCategories = async () => {
   const categoriesContainer = document.getElementById("categories");
   let { categories } = await get("get_categories");
@@ -29,21 +48,9 @@ const setCategories = async () => {
     categoriesContainer.appendChild(category);
     category.addEventListener("click", async (event) => {
       event.preventDefault();
-      response = await fetch(BASE_URL + "get_posts_by_category", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ id: [id] }),
-      });
-      if (response.ok) {
-        return response.json();
-      } else
-        console.log(
-          new Error(
-            "Something went wrong in getting a response. Please, try again!."
-          )
-        );
+
+      const response = await post("get_posts_by_category", { id: [id] });
+
       console.log(response);
     });
   });
@@ -51,7 +58,7 @@ const setCategories = async () => {
 
 const setPosts = async () => {
   const postsContainers = document.querySelectorAll(".miniBlogHolder");
-  if (!postsContainers.length) {
+  if (!postsContainers.length || !postsContainers[2]) {
     return;
   }
   postsContainers[0].innerHTML = "";
