@@ -1,4 +1,5 @@
 let BASE_URL = "http://blogpost.sbuy.uz/api/blog/";
+// let BASE_URL = "http://ipblog.sbuy.uz/api/blog/";
 
 const olderButton = document.querySelector(".older");
 const newerButton = document.querySelector(".newer");
@@ -50,9 +51,15 @@ const setCategories = async () => {
 
 const setPosts = async () => {
   const postsContainers = document.querySelectorAll(".miniBlogHolder");
+  if (!postsContainers.length) {
+    return;
+  }
   postsContainers[0].innerHTML = "";
   postsContainers[2].innerHTML = "";
   const cardTemplate = document.getElementsByTagName("template")[0];
+  if (!cardTemplate) {
+    return;
+  }
   const query = window.location.search;
   let {
     posts: { data, current_page, next_page_url, last_page, prev_page_url },
@@ -112,6 +119,9 @@ const setPosts = async () => {
 const setPopularPosts = async () => {
   const postsContainer = document.querySelectorAll(".miniBlogHolder")[1];
   const cardTemplate = document.getElementsByTagName("template")[0];
+  if (!cardTemplate || !postsContainer) {
+    return;
+  }
   let { posts } = await get("get_populars");
   posts.forEach(({ title, author, body, views, id }) => {
     const card = cardTemplate.content.cloneNode(true);
