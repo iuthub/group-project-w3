@@ -27,8 +27,7 @@ const setPosts = async () => {
   const query = window.location.search;
   let {
     posts: { data, current_page, last_page },
-  } = await get(`get_posts${query ? query : ""}`);
-
+  } = await get(`get_posts${query}`);
   let searchParamsOlder = "";
   let searchParamsNewer = "";
 
@@ -87,10 +86,12 @@ const setPosts = async () => {
 const setPopularPosts = async () => {
   const postsContainer = document.querySelectorAll(".miniBlogHolder")[1];
   const cardTemplate = document.getElementsByTagName("template")[0];
+  const query = window.location.search;
   if (!cardTemplate || !postsContainer) {
     return;
   }
-  let { posts } = await get("get_populars");
+  let { posts } = await get(`get_populars${query}`);
+  console.log(posts);
   posts.forEach(({ title, author, views, id, sample }) => {
     const card = cardTemplate.content.cloneNode(true);
     const anchor = card.querySelector("a");
