@@ -1,8 +1,16 @@
+//Function used to get an IP of user to count the number of views. Source :
+// https://www.codegrepper.com/code-examples/javascript/get+ip+only+vanilla+javascript
+const getIP = async (json) => {
+  if (!window.localStorage.getItem("ip")) {
+    window.localStorage.setItem("ip", json.ip);
+  }
+};
+
 const setPostData = async () => {
   const params = new URLSearchParams(window.location.search);
   const postId = params.get("post");
   const {
-    post: { author, body, created_at, title },
+    post: { author, body, created_at, title, id },
     related,
   } = await post("get_post", { id: postId });
   const titleHtml = document.querySelector(".postTitle");
@@ -19,9 +27,18 @@ const setPostData = async () => {
   dateHtml.innerHTML = `${createdDay}.${createdMonth}.${createdYear}`;
 
   //Set recommended posts
+  setRecommendedPosts(related);
+
+  //send data when a post is visited from an IP
+  post("check_ip", {
+    post_id: id,
+    ip: window.localStorage.getItem("ip"),
+  });
+};
+
+const setRecommendedPosts = (related) => {
   const postsContainer = document.querySelector(".miniBlogHolder");
   const cardTemplate = document.getElementsByTagName("template")[0];
-
   related.forEach(({ title, author, sample, views, id }) => {
     const card = cardTemplate.content.cloneNode(true);
     const anchor = card.querySelector("a");
@@ -29,6 +46,7 @@ const setPostData = async () => {
     const titleHtml = card.querySelector("h2");
     titleHtml.innerHTML = title;
     const viewsHtml = card.querySelector(".views");
+
     viewsHtml.innerHTML = views;
     const authorHtml = card.querySelector(".author");
     authorHtml.innerHTML = author;
