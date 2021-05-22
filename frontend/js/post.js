@@ -27,7 +27,7 @@ const setPostData = async () => {
   related.forEach(({ title, author, body, views, id }) => {
     const card = cardTemplate.content.cloneNode(true);
     const anchor = card.querySelector("a");
-    anchor.setAttribute("href", `./post/?post=${id}`);
+    anchor.setAttribute("href", `../post/?post=${id}`);
     const titleHtml = card.querySelector("h2");
     titleHtml.innerHTML = title;
     const viewsHtml = card.querySelector(".views");

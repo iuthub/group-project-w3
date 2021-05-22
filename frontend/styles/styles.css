@@ -214,14 +214,11 @@ header > div {
   color: rgba(209, 213, 219, 1);
 }
 .postHolder {
-  background-color: #f8fcc3;
   margin: 1.5rem auto;
-  border: 1px solid transparent;
   padding: 2rem 0.75rem 4rem 1rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  width: 91.666%;
+  width: 90%;
 }
 .postTitle {
   text-align: center;
