@@ -69,42 +69,40 @@ const setPosts = async () => {
   }
   const query = window.location.search;
   let {
-    posts: { data, current_page, next_page_url, last_page, prev_page_url },
+    posts: { data, current_page, last_page },
   } = await get(`get_posts${query ? query : ""}`);
+
+  const searchParams = window.location.search;
+  let searchParamsOlder = "";
+  let searchParamsNewer = "";
+  if (searchParams) {
+    searchParamsOlder = new URLSearchParams(searchParams);
+    searchParamsNewer = new URLSearchParams(searchParams);
+    searchParamsOlder.set("page", current_page + 1);
+    searchParamsNewer.set("page", current_page - 1);
+  } else {
+    searchParamsOlder = `page=${current_page + 1}`;
+    searchParamsNewer = `page=${current_page - 1}`;
+  }
+
+  olderButton.setAttribute(
+    "href",
+    window.location.pathname + "?" + searchParamsOlder
+  );
+  newerButton.setAttribute(
+    "href",
+    window.location.pathname + "?" + searchParamsNewer
+  );
 
   if (current_page === 1) {
     newerButton.style.visibility = "hidden";
     olderButton.style.visibility = "visible";
-    olderButton.setAttribute("href", next_page_url);
-    //re-use search part of url which was extracted by browser
-    olderButton.setAttribute(
-      "href",
-      window.location.pathname + olderButton.search
-    );
   } else if (current_page === last_page) {
     olderButton.style.visibility = "hidden";
     newerButton.style.visibility = "visible";
-    newerButton.setAttribute("href", prev_page_url);
-    //re-use search part of url which was extracted by browser
-    newerButton.setAttribute(
-      "href",
-      window.location.pathname + newerButton.search
-    );
   } else {
     olderButton.style.visibility = "visible";
     newerButton.style.visibility = "visible";
-    olderButton.setAttribute("href", next_page_url);
-    //re-use search part of url which was extracted by browser
-    olderButton.setAttribute(
-      "href",
-      window.location.pathname + olderButton.search
-    );
-    newerButton.setAttribute("href", prev_page_url);
-    //re-use search part of url which was extracted by browser
-    newerButton.setAttribute(
-      "href",
-      window.location.pathname + newerButton.search
-    );
   }
 
   data.forEach(({ title, author, body, views, id }, index) => {
