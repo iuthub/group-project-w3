@@ -1,5 +1,4 @@
-let BASE_URL = "http://blogpost.sbuy.uz/api/blog/";
-// let BASE_URL = "http://ipblog.sbuy.uz/api/blog/";
+let BASE_URL = "http://ipblog.sbuy.uz/api/blog/";
 
 const olderButton = document.querySelector(".older");
 const newerButton = document.querySelector(".newer");
@@ -42,17 +41,12 @@ const setCategories = async () => {
     const category = document.createElement("div");
     category.className = "footer-link";
     const anchor = document.createElement("a");
-    anchor.setAttribute("href", `/${title}`);
+    let query = new URLSearchParams(window.location.search);
+    query.set("category", id);
+    anchor.setAttribute("href", window.location.pathname + "?" + query);
     anchor.innerHTML = title;
     category.appendChild(anchor);
     categoriesContainer.appendChild(category);
-    category.addEventListener("click", async (event) => {
-      event.preventDefault();
-
-      const response = await post("get_posts_by_category", { id: [id] });
-
-      console.log(response);
-    });
   });
 };
 
@@ -72,18 +66,13 @@ const setPosts = async () => {
     posts: { data, current_page, last_page },
   } = await get(`get_posts${query ? query : ""}`);
 
-  const searchParams = window.location.search;
   let searchParamsOlder = "";
   let searchParamsNewer = "";
-  if (searchParams) {
-    searchParamsOlder = new URLSearchParams(searchParams);
-    searchParamsNewer = new URLSearchParams(searchParams);
-    searchParamsOlder.set("page", current_page + 1);
-    searchParamsNewer.set("page", current_page - 1);
-  } else {
-    searchParamsOlder = `page=${current_page + 1}`;
-    searchParamsNewer = `page=${current_page - 1}`;
-  }
+
+  searchParamsOlder = new URLSearchParams(query);
+  searchParamsNewer = new URLSearchParams(query);
+  searchParamsOlder.set("page", current_page + 1);
+  searchParamsNewer.set("page", current_page - 1);
 
   olderButton.setAttribute(
     "href",
@@ -94,17 +83,18 @@ const setPosts = async () => {
     window.location.pathname + "?" + searchParamsNewer
   );
 
-  if (current_page === 1) {
-    newerButton.style.visibility = "hidden";
-    olderButton.style.visibility = "visible";
-  } else if (current_page === last_page) {
-    olderButton.style.visibility = "hidden";
-    newerButton.style.visibility = "visible";
-  } else {
-    olderButton.style.visibility = "visible";
-    newerButton.style.visibility = "visible";
+  if (last_page > 1) {
+    if (current_page === 1) {
+      newerButton.style.visibility = "hidden";
+      olderButton.style.visibility = "visible";
+    } else if (current_page === last_page) {
+      olderButton.style.visibility = "hidden";
+      newerButton.style.visibility = "visible";
+    } else {
+      olderButton.style.visibility = "visible";
+      newerButton.style.visibility = "visible";
+    }
   }
-
   data.forEach(({ title, author, body, views, id }, index) => {
     const card = cardTemplate.content.cloneNode(true);
     const anchor = card.querySelector("a");
