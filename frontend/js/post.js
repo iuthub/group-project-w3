@@ -22,9 +22,7 @@ const setPostData = async () => {
   const postsContainer = document.querySelector(".miniBlogHolder");
   const cardTemplate = document.getElementsByTagName("template")[0];
 
-  console.log(related);
-
-  related.forEach(({ title, author, body, views, id }) => {
+  related.forEach(({ title, author, sample, views, id }) => {
     const card = cardTemplate.content.cloneNode(true);
     const anchor = card.querySelector("a");
     anchor.setAttribute("href", `../post/?post=${id}`);
@@ -34,6 +32,10 @@ const setPostData = async () => {
     viewsHtml.innerHTML = views;
     const authorHtml = card.querySelector(".author");
     authorHtml.innerHTML = author;
+    if (sample) {
+      const imageHtml = card.querySelector(".preview");
+      imageHtml.setAttribute("src", "http://ipblog.sbuy.uz/storage/" + sample);
+    }
     postsContainer.appendChild(card);
   });
 };

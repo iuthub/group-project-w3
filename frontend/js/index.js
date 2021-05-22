@@ -5,9 +5,8 @@ const setCategories = async () => {
     const category = document.createElement("div");
     category.className = "footer-link";
     const anchor = document.createElement("a");
-    let query = new URLSearchParams(window.location.search);
-    query.set("id", id);
-    anchor.setAttribute("href", window.location.pathname + "?" + query);
+    let query = `?id=${id}`;
+    anchor.setAttribute("href", `/?${query}`);
     anchor.innerHTML = title;
     category.appendChild(anchor);
     categoriesContainer.appendChild(category);
@@ -70,7 +69,7 @@ const setPosts = async () => {
     const authorHtml = card.querySelector(".author");
     authorHtml.innerHTML = author;
     if (sample) {
-      const imageHtml = card.getElementById("preview");
+      const imageHtml = card.querySelector(".preview");
       imageHtml.setAttribute("src", "http://ipblog.sbuy.uz/storage/" + sample);
     }
     index < 6
@@ -103,7 +102,7 @@ const setPopularPosts = async () => {
     const authorHtml = card.querySelector(".author");
     authorHtml.innerHTML = author;
     if (sample) {
-      const imageHtml = card.getElementById("preview");
+      const imageHtml = card.querySelector(".preview");
       imageHtml.setAttribute("src", "http://ipblog.sbuy.uz/storage/" + sample);
     }
     postsContainer.appendChild(card);
