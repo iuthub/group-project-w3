@@ -29,7 +29,6 @@ const setPosts = async () => {
   let {
     posts: { data, current_page, last_page },
   } = await get(`get_posts${query ? query : ""}`);
-  console.log(data);
 
   let searchParamsOlder = "";
   let searchParamsNewer = "";
@@ -60,7 +59,7 @@ const setPosts = async () => {
       newerButton.style.visibility = "visible";
     }
   }
-  data.forEach(({ title, author, body, views, id, sample }, index) => {
+  data.forEach(({ title, author, views, id, sample }, index) => {
     const card = cardTemplate.content.cloneNode(true);
     const anchor = card.querySelector("a");
     anchor.setAttribute("href", `./post/?post=${id}`);
@@ -93,7 +92,7 @@ const setPopularPosts = async () => {
     return;
   }
   let { posts } = await get("get_populars");
-  posts.forEach(({ title, author, body, views, id }) => {
+  posts.forEach(({ title, author, views, id, sample }) => {
     const card = cardTemplate.content.cloneNode(true);
     const anchor = card.querySelector("a");
     anchor.setAttribute("href", `./post/?post=${id}`);
@@ -103,6 +102,10 @@ const setPopularPosts = async () => {
     viewsHtml.innerHTML = views;
     const authorHtml = card.querySelector(".author");
     authorHtml.innerHTML = author;
+    if (sample) {
+      const imageHtml = card.getElementById("preview");
+      imageHtml.setAttribute("src", "http://ipblog.sbuy.uz/storage/" + sample);
+    }
     postsContainer.appendChild(card);
   });
 };
