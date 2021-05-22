@@ -65,6 +65,7 @@ const setPosts = async () => {
   let {
     posts: { data, current_page, last_page },
   } = await get(`get_posts${query ? query : ""}`);
+  console.log(data);
 
   let searchParamsOlder = "";
   let searchParamsNewer = "";
@@ -95,7 +96,7 @@ const setPosts = async () => {
       newerButton.style.visibility = "visible";
     }
   }
-  data.forEach(({ title, author, body, views, id }, index) => {
+  data.forEach(({ title, author, body, views, id, sample }, index) => {
     const card = cardTemplate.content.cloneNode(true);
     const anchor = card.querySelector("a");
     anchor.setAttribute("href", `./post/?post=${id}`);
@@ -105,6 +106,10 @@ const setPosts = async () => {
     viewsHtml.innerHTML = views;
     const authorHtml = card.querySelector(".author");
     authorHtml.innerHTML = author;
+    if (sample) {
+      const imageHtml = card.getElementById("preview");
+      imageHtml.setAttribute("src", BASE_URL + sample);
+    }
     index < 6
       ? postsContainers[0].appendChild(card)
       : postsContainers[2].appendChild(card);
