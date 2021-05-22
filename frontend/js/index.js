@@ -6,7 +6,7 @@ const setCategories = async () => {
     category.className = "footer-link";
     const anchor = document.createElement("a");
     let query = `?id=${id}`;
-    anchor.setAttribute("href", `/?${query}`);
+    anchor.setAttribute("href", `/${query}`);
     anchor.innerHTML = title;
     category.appendChild(anchor);
     categoriesContainer.appendChild(category);
