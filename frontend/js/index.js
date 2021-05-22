@@ -76,7 +76,7 @@ const setPosts = async (requestQuery) => {
   data.forEach(({ title, author, body, views, id }, index) => {
     const card = cardTemplate.content.cloneNode(true);
     const anchor = card.querySelector("a");
-    anchor.setAttribute("href", `/post/${id}`);
+    anchor.setAttribute("href", `./post/?post=${id}`);
     const titleHtml = card.querySelector("h2");
     titleHtml.innerHTML = title;
     const viewsHtml = card.querySelector(".views");
@@ -96,7 +96,7 @@ const setPopularPosts = async () => {
   posts.forEach(({ title, author, body, views, id }) => {
     const card = cardTemplate.content.cloneNode(true);
     const anchor = card.querySelector("a");
-    anchor.setAttribute("href", `../post`);
+    anchor.setAttribute("href", `./post/?post=${id}`);
     const titleHtml = card.querySelector("h2");
     titleHtml.innerHTML = title;
     const viewsHtml = card.querySelector(".views");
