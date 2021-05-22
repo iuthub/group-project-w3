@@ -10,7 +10,8 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <title>POST</title>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -26,39 +27,25 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script src="./js/api.js" defer></script>
-    <script src="./js/index.js" defer></script>
-    <title>Blog</title>
+    <script src="../js/api.js"></script>
+    <script src="../js/index.js" defer></script>
+    <script src="../js/post.js" defer></script>
   </head>
   <body>
-    <header>
-      <div>
-        <div class="headerTextHolder">
-          <h1>Title of The Site</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
-            ipsam animi iusto facere, veritatis autem temporibus quo numquam
-            minus consequuntur, porro labore quas fugiat beatae!
-          </p>
+    <main>
+      <div class="pt-4">
+        <div class="postHolder">
+          <h1 class="postTitle"></h1>
+          <div id="body"></div>
+          <div class="postAdditionalInfo">
+            <div class="postDate"></div>
+            <div class="postAuthor"></div>
+          </div>
         </div>
       </div>
-    </header>
-    <main>
-      <div class="miniBlogHolder"></div>
       <div class="panel">
-        <h3>Popular Posts</h3>
-        <div class="miniBlogHolder"></div>
-      </div>
-      <div class="miniBlogHolder"></div>
-      <div class="pagination">
-        <a class="newer" href="#">
-          <img src="./icons/arrow.svg" />
-          <div>Newer</div>
-        </a>
-        <a class="older" href="#">
-          <div>Older</div>
-          <img src="./icons/arrow.svg" />
-        </a>
+        <h3>Recommended Posts</h3>
+        <div class="miniBlogHolder recommended"></div>
       </div>
     </main>
     <footer class="footer">
@@ -246,7 +233,7 @@
           <div class="miniBlogImageHolder">
             <img
               class="preview"
-              src="images/nature.jpg"
+              src="../images/nature.jpg"
               alt="Image of the post"
             />
           </div>
@@ -254,7 +241,7 @@
             <h2>Title of the Post</h2>
             <div class="miniBlogAdditionalInfo">
               <div class="miniBlogSeenTimes">
-                <img src="images/eye.png" alt="Eye icon" />
+                <img src="../images/eye.png" alt="Eye icon" />
                 <span class="views">777</span>
               </div>
               <div class="miniBlogAuthor">

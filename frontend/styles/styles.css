@@ -10,7 +10,7 @@ a {
   color: inherit;
 }
 header {
-  background-image: url("./images/library.jpg");
+  background-image: url("../images/library.jpg");
   background-position: center;
   background-size: cover;
   height: 100vh;
@@ -214,21 +214,17 @@ header > div {
   color: rgba(209, 213, 219, 1);
 }
 .postHolder {
-  background-color: #f8fcc3;
   margin: 1.5rem auto;
-  border: 1px solid transparent;
   padding: 2rem 0.75rem 4rem 1rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  width: 91.666%;
+  width: 90%;
 }
 .postTitle {
   text-align: center;
   font-family: sans-serif;
   font-size: 1.875rem;
   line-height: 2.25rem;
-  font-weight: 100;
   margin-bottom: 2.5rem;
 }
 .postAdditionalInfo {
@@ -289,6 +285,37 @@ header > div {
 .answerSymbol {
   color: rgba(5, 150, 105, 1);
 }
+
+.pagination {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  margin-bottom: 40px;
+}
+
+.older,
+.newer {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 600;
+  visibility: hidden;
+}
+
+.older:hover,
+.newer:hover {
+  text-decoration: none;
+}
+
+.newer img {
+  transform: rotateZ(180deg);
+  margin-right: 15px;
+}
+
+.older img {
+  margin-left: 15px;
+}
+
 .aboutUsCardHolder{
   display: flex;
   justify-content: space-around;
@@ -361,6 +388,7 @@ header > div {
   .postTitle {
     font-size: 3rem;
     line-height: 1;
+    font-weight: 900;
     margin: 1.5rem 0
   }
   .faqContent {
