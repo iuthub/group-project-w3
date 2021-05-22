@@ -72,12 +72,18 @@ const setPosts = async () => {
     authorHtml.innerHTML = author;
     if (sample) {
       const imageHtml = card.getElementById("preview");
-      imageHtml.setAttribute("src", BASE_URL + sample);
+      imageHtml.setAttribute("src", "http://ipblog.sbuy.uz/storage/" + sample);
     }
     index < 6
       ? postsContainers[0].appendChild(card)
       : postsContainers[2].appendChild(card);
   });
+
+  //delete elements at the bottom if there are less than 6 posts
+  if (!postsContainers[2].childNodes.length) {
+    postsContainers[2].style.display = "none";
+    document.querySelector(".pagination").style.display = "none";
+  }
 };
 
 const setPopularPosts = async () => {
