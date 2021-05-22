@@ -29,17 +29,21 @@ const setCategories = async () => {
   });
 };
 
-const setPosts = async (requestParameter) => {
+const setPosts = async (requestQuery) => {
   const postsContainers = document.querySelectorAll(".miniBlogHolder");
+  postsContainers[0].innerHTML = "";
+  postsContainers[2].innerHTML = "";
   const cardTemplate = document.getElementsByTagName("template")[0];
   let {
     posts: { data, current_page, next_page_url, last_page, prev_page_url },
-  } = await get(`get_posts${requestParameter ? `?${requestParameter}` : ""}`);
+  } = await get(`get_posts${requestQuery ? requestQuery : ""}`);
 
   if (current_page === 1) {
+    newerButton.style.visibility = "hidden";
     olderButton.style.visibility = "visible";
     olderButton.setAttribute("href", next_page_url);
   } else if (current_page === last_page) {
+    olderButton.style.visibility = "hidden";
     newerButton.style.visibility = "visible";
     newerButton.setAttribute("href", prev_page_url);
   } else {
@@ -89,10 +93,10 @@ setPopularPosts();
 
 olderButton.addEventListener("click", (event) => {
   event.preventDefault();
-  console.dir(event.target);
+  setPosts(olderButton.search);
 });
 
 newerButton.addEventListener("click", (event) => {
   event.preventDefault();
-  console.dir(event.target);
+  setPosts(newerButton.search);
 });
