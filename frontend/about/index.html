@@ -10,7 +10,8 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <title>Frequently Asked Questions</title>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -26,15 +27,14 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script src="./js/api.js" defer></script>
-    <script src="./js/index.js" defer></script>
-    <title>Blog</title>
+    <script src="../js/api.js"></script>
+    <script src="../js/index.js" defer></script>
   </head>
   <body>
     <header>
       <div>
         <div class="headerTextHolder">
-          <h1>Title of The Site</h1>
+          <h1>About us</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
             ipsam animi iusto facere, veritatis autem temporibus quo numquam
@@ -44,21 +44,64 @@
       </div>
     </header>
     <main>
-      <div class="miniBlogHolder"></div>
-      <div class="panel">
-        <h3>Popular Posts</h3>
-        <div class="miniBlogHolder"></div>
+      <div>
+        <h2 class="postTitle">Our team</h2>
       </div>
-      <div class="miniBlogHolder"></div>
-      <div class="pagination">
-        <a class="newer" href="#">
-          <img src="./icons/arrow.svg" />
-          <div>Newer</div>
-        </a>
-        <a class="older" href="#">
-          <div>Older</div>
-          <img src="./icons/arrow.svg" />
-        </a>
+      <div class="aboutUsCardHolder">
+        <div class="aboutUsCard">
+          <div class="aboutUsCardImg">
+            <img src="../images/muhammadamin.gpg.jpg" alt="Image of the post" />
+          </div>
+          <div class="aboutUsCardContent">
+            <h2>Mukhammadaminxon Sulaymonov</h2>
+            <p>Frontend developer</p>
+          </div>
+        </div>
+        <div class="aboutUsCard">
+          <div class="aboutUsCardImg">
+            <img src="../images/bahodir.gpg.jpg" alt="Image of the post" />
+          </div>
+          <div class="aboutUsCardContent">
+            <h2>Bahodir Abdullaev</h2>
+            <p>Project Manager</p>
+          </div>
+        </div>
+        <div class="aboutUsCard">
+          <div class="aboutUsCardImg">
+            <img src="../images/jasurbek.jpeg" alt="Image of the post" />
+          </div>
+          <div class="aboutUsCardContent">
+            <h2>Jasurbek Normuroddov</h2>
+            <p>Frontend Developer</p>
+          </div>
+        </div>
+        <div class="aboutUsCard">
+          <div class="aboutUsCardImg">
+            <img src="../images/adham.gpg.jpg" alt="Image of the post" />
+          </div>
+          <div class="aboutUsCardContent">
+            <h2>Adham Rakhimov</h2>
+            <p>Backend Developer</p>
+          </div>
+        </div>
+        <div class="aboutUsCard">
+          <div class="aboutUsCardImg">
+            <img src="../images/shahzod.gpg.jpg" alt="Image of the post" />
+          </div>
+          <div class="aboutUsCardContent">
+            <h2>Shahzod Uralov</h2>
+            <p>Backend Developer</p>
+          </div>
+        </div>
+        <div class="aboutUsCard">
+          <div class="aboutUsCardImg">
+            <img src="../images/ulugbek.gpg.jpg" alt="Image of the post" />
+          </div>
+          <div class="aboutUsCardContent">
+            <h2>Ulugbek Erkinov</h2>
+            <p>Backend Developer</p>
+          </div>
+        </div>
       </div>
     </main>
     <footer class="footer">
@@ -240,30 +283,20 @@
         className="text-center border-t border-gray-500 py-3 text-sm text-gray-300"
       ></div>
     </footer>
-    <template>
-      <a class="miniBlog">
-        <div class="miniBlogContent">
-          <div class="miniBlogImageHolder">
-            <img
-              class="preview"
-              src="images/nature.jpg"
-              alt="Image of the post"
-            />
-          </div>
-          <div class="miniBlogContext">
-            <h2>Title of the Post</h2>
-            <div class="miniBlogAdditionalInfo">
-              <div class="miniBlogSeenTimes">
-                <img src="images/eye.png" alt="Eye icon" />
-                <span class="views">777</span>
-              </div>
-              <div class="miniBlogAuthor">
-                <div class="author">Author</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </a>
-    </template>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
