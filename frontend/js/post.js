@@ -39,15 +39,12 @@ const setPostData = async () => {
 const setRecommendedPosts = (related) => {
   const postsContainer = document.querySelector(".miniBlogHolder");
   const cardTemplate = document.getElementsByTagName("template")[0];
-  related.forEach(({ title, author, sample, views, id }) => {
+  related.forEach(({ title, author, sample, id }) => {
     const card = cardTemplate.content.cloneNode(true);
     const anchor = card.querySelector("a");
     anchor.setAttribute("href", `../post/?post=${id}`);
     const titleHtml = card.querySelector("h2");
     titleHtml.innerHTML = title;
-    const viewsHtml = card.querySelector(".views");
-
-    viewsHtml.innerHTML = views;
     const authorHtml = card.querySelector(".author");
     authorHtml.innerHTML = author;
     if (sample) {
