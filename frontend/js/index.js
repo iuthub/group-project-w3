@@ -93,7 +93,6 @@ const setPopularPosts = async () => {
     return;
   }
   let { posts } = await get(`get_populars${query}`);
-  console.log(posts);
   posts.forEach(({ title, author, views, id, sample }) => {
     const card = cardTemplate.content.cloneNode(true);
     const anchor = card.querySelector("a");
