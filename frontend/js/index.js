@@ -56,6 +56,9 @@ const setPosts = async () => {
       olderButton.style.visibility = "visible";
       newerButton.style.visibility = "visible";
     }
+  } else {
+    //remove page navigation element from the DOM if there is only one page
+    document.querySelector(".pagination").style.display = "none";
   }
   data.forEach(({ title, author, views, id, sample }, index) => {
     const card = cardTemplate.content.cloneNode(true);
@@ -79,7 +82,6 @@ const setPosts = async () => {
   //delete elements at the bottom if there are less than 6 posts
   if (!postsContainers[2].childNodes.length) {
     postsContainers[2].style.display = "none";
-    document.querySelector(".pagination").style.display = "none";
   }
 };
 
