@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Category;
 use App\Post;
 use App\Tag;
-use App\Language;
 use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
@@ -23,16 +22,14 @@ class PostController extends Controller
 
         $posts=Post::orderBy('created_at', 'desc')->get();
         $categories=Category::orderBy('created_at', 'desc')->get();
-        $languages=Language::orderBy('created_at', 'desc')->get();
-        return view('src.posts')->with("posts",$posts)->with("categories",$categories)->with("languages",$languages)->with('new_count',$new_count);
+        return view('src.posts')->with("posts",$posts)->with("categories",$categories)->with('new_count',$new_count);
     }
 
     public function newPost(){
         $posts=Post::where('status','inactive')->orderBy('created_at', 'desc')->get();
         $new_count=$posts->count();
         $categories=Category::orderBy('created_at', 'desc')->get();
-        $languages=Language::orderBy('created_at', 'desc')->get();
-        return view('src.newposts')->with("posts",$posts)->with("categories",$categories)->with("languages",$languages)->with('new_count',$new_count);
+        return view('src.newposts')->with("posts",$posts)->with("categories",$categories)->with('new_count',$new_count);
     }
 
     public function changeStatus(Request $request){
@@ -67,11 +64,7 @@ class PostController extends Controller
   
         $validator = Validator::make($request->all(), [
             'title' => 'min:1|required',
-            'pages' => 'min:1|required',
             'author' => 'min:1|required',
-            'phone' => 'min:1|required',
-            'email' => 'email',
-            'language' => 'required',
             'sample' => 'file',
             'category_id' => 'required',
         ]);
@@ -88,11 +81,8 @@ class PostController extends Controller
 
         $post=new Post();
         $post->title = $request['title'];
-        $post->pages = $request['pages'];
         $post->author = $request['author'];
-        $post->phone = $request['phone'];
-        $post->email = $request['email'];
-        $post->language = $request['language'];
+        $post->subheading = $request['subheading'];
         $post->sample = $sample;
         $post->category_id = $request['category_id'];
         $post->save();
@@ -126,15 +116,12 @@ class PostController extends Controller
         
         $post=Post::find($request['id']);
         $post->title = $request['title'];
-        $post->pages = $request['pages'];
+        $post->subheading = $request['subheading'];
         $post->author = $request['author'];
-        $post->phone = $request['phone'];
-        $post->email = $request['email'];
         if($request->hasFile('sample')){
             $sample=$request->sample->store('sample');
             $post->sample = $sample;
         }
-        $post->language = $request['language'];
         $post->category_id = $request['category_id'];
         $post->update();
 
@@ -193,9 +180,8 @@ class PostController extends Controller
 
         $post=Post::find($id);
          $categories=Category::orderBy('created_at', 'desc')->get();
-        $languages=Language::orderBy('created_at', 'desc')->get();
         $tags=$post->tags->pluck('name');
-        return view('src.post')->with("post",$post)->with('tags',$tags)->with("categories",$categories)->with("languages",$languages)->with('new_count',$new_count);
+        return view('src.post')->with("post",$post)->with('tags',$tags)->with("categories",$categories)->with('new_count',$new_count);
     }
 
 
@@ -255,7 +241,7 @@ class PostController extends Controller
              $new_count=$posts_new->count();
 
             $categories=Category::orderBy('created_at', 'desc')->get();
-            $languages=Language::orderBy('created_at', 'desc')->get();
-            return view('src.posts')->with("posts",$posts)->with("categories",$categories)->with("languages",$languages)->with('new_count',$new_count)->with('request',$request);
+
+            return view('src.posts')->with("posts",$posts)->with("categories",$categories)->with('new_count',$new_count)->with('request',$request);
         }
 }

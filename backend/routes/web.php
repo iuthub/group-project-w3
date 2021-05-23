@@ -27,11 +27,6 @@ Route::post('category/updateCategory', 'CategoryController@updateCategory')->mid
 Route::post('category/getById', 'CategoryController@getById')->middleware('auth');
 Route::resource('category', 'CategoryController')->middleware('auth');
 
-Route::post('language/deleteLanguage', 'LanguageController@deleteLanguage')->middleware('auth');
-Route::post('language/updateLanguage', 'LanguageController@updateLanguage')->middleware('auth');
-Route::post('language/getById', 'LanguageController@getById')->middleware('auth');
-Route::resource('language', 'LanguageController')->middleware('auth');
-
 Route::post('post/search', 'PostController@searchPost')->middleware('auth');
 Route::post('post/changeStatus', 'PostController@changeStatus')->middleware('auth');
 Route::get('post/newPost', 'PostController@newPost')->middleware('auth');

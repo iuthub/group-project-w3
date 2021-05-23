@@ -20,11 +20,8 @@ class CreatePostsTable extends Migration
             $table->string('author')->nullable();
             $table->text('title');
             $table->text('sample')->nullable();
+            $table->text('subheading')->nullable();
             $table->text('body')->nullable();
-            $table->integer('pages');
-            $table->string('email')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('language')->nullable();
             $table->string('status')->default('inactive');//[inactive,active,finished]
             $table->integer('category_id');
             $table->timestamps();
